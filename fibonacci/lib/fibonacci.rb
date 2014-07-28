@@ -9,7 +9,6 @@ def fibonacci(n)
   else
     start_n(n)
   end
-  sum
 end
 
 
