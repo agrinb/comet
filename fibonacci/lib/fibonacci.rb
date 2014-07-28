@@ -7,15 +7,9 @@ def fibonacci(n)
   if n > 2
     sum = fibonacci(n -1 ) + fibonacci(n - 2)
   else
-    start_n(n)
+    1
   end
 end
 
-
-def start_n(n)
-  if n <= 2
-   return 1
-  end
-end
 
 
