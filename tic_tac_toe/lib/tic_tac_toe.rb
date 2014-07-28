@@ -3,13 +3,12 @@ require 'pry-debugger'
 
 
 def winner?(board)
+#not DRY, may return to resolve, but probably won't
   if horizontal(board) || diagonal(board)
     return true
   else
     false
   end
-
-  binding.pry
 
   board = board.transpose
 
@@ -18,7 +17,6 @@ def winner?(board)
   else
     false
   end
-
 end
 
 def horizontal(board)
@@ -54,5 +52,6 @@ def not_empty?(row)
     end
   end
 end
+
 
 
