@@ -23,8 +23,10 @@ def comp(array)
   @sorted
 end
 
-@sorted.each do |arr|
-  new_arr
+@sorted.each do |ineternal_arr|
+  new_arr = []
+  internal_arr.each do |smaller
+
 
 end
 
