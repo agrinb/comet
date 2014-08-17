@@ -1,3 +1,6 @@
+# rspec is having a problem with @instanse variables
+# used @@class variable
+
 require 'pry'
 
 array = "30.02 -88.87 10.58 -99.22 107.33"
@@ -22,7 +25,7 @@ def sort(array)
   if array.length > 0
     sort(array)
   else
-    @@sorted.join(' ')
+  @@sorted.join(' ')
   end
 end
 
