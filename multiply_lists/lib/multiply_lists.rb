@@ -9,13 +9,6 @@ def multiply_lists(lists)
     return "Lists must be same length"
   end
 
-
-  # array = ""
-  # arr1.each_with_index do |el, i|
-  #   array << " " + (el * arr2[i]).to_s
-  # end
-  # array
-
   array = []
   arr1.each_with_index do |el, i|
     array << el * arr2[i]
@@ -26,7 +19,5 @@ def multiply_lists(lists)
   string.delete! ","
 
   string
-
-
 end
 
