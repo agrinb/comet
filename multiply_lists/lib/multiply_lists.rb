@@ -5,7 +5,7 @@ def multiply_lists(lists)
   arr1 = arr1.split(" ").map {|x| x.to_i}
   arr2 = arr2.split(" ").map {|x| x.to_i}
 
-  if arr1.length != arr2. length
+  if arr1.length != arr2.length
     return "Lists must be same length"
   end
 
