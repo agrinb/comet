@@ -87,11 +87,30 @@ def restaurants
   }
 end
 
-binding.pry
+def traverse(hash, string)
+  arr = []
+  hash.each do |k, v|
+    if k.to_s.include?(string)
+      #binding.pry
+      arr << { k => v }
+    elsif v.respond_to?(:keys)
+      traverse(hash[k],string)
+    else
+      "nothing"
+    end
+  end
+  arr
+end
+
+
+
 
 def most_expensive
-  "SOLUTION GOES HERE"
+  traverse(restaurants, "price")
+  binding.pry
 end
+
+
 
 def one_of_everything_from(name)
   "SOLUTION GOES HERE"
@@ -105,6 +124,6 @@ def lactose_free_items
   "SOLUTION GOES HERE"
 end
 
-
-
+most_expensive
+traverse(restaurants, "price")
 
