@@ -87,27 +87,36 @@ def restaurants
   }
 end
 
-def traverse(hash, string)
-  arr = []
+@arr = []
+
+def traverse(hash, string, parent)
   hash.each do |k, v|
     if k.to_s.include?(string)
-      #binding.pry
-      arr << { k => v }
+      @arr << { parent => hash[:price_in_cents]}
     elsif v.respond_to?(:keys)
-      traverse(hash[k],string)
+      traverse(hash[k], string, k)
     else
       "nothing"
     end
   end
-  arr
+  @arr
 end
 
 
 
 
 def most_expensive
-  traverse(restaurants, "price")
-  binding.pry
+  most = nil
+  price = 0
+  array = traverse(restaurants, "price", restaurants)
+  array.each do |hash|
+    #binding.pry
+    if price < hash.values[0]
+      most = hash.keys[0].to_s
+      price = hash.values[0]
+    end
+  end
+  puts most
 end
 
 
@@ -125,5 +134,4 @@ def lactose_free_items
 end
 
 most_expensive
-traverse(restaurants, "price")
 
