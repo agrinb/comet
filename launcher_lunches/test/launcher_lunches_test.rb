@@ -2,7 +2,7 @@ require_relative '../lib/launcher_lunches'
 
 describe 'launcher lunches' do
   it 'returns most expensize item' do
-    expect(most_expensive).to eq "Veggie surprise bag from Adam's Veggie Express"
+    expect(most_expensive).to eq "Veggie surprise bag"
   end
 
   it 'returns the cost of ordering one of everything from a given restaurant' do

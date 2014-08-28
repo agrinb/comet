@@ -87,42 +87,45 @@ def restaurants
   }
 end
 
-@arr = []
 
-def traverse(hash, string, parent)
+
+def traverse(hash, string, parent, array)
   hash.each do |k, v|
     if k.to_s.include?(string)
-      @arr << { parent => hash[:price_in_cents]}
+      array << { parent => hash[:price_in_cents]}
     elsif v.respond_to?(:keys)
-      traverse(hash[k], string, k)
+      traverse(hash[k], string, k, array)
     else
       "nothing"
     end
   end
-  @arr
+  array
 end
 
 
 
 
 def most_expensive
+  new_array = []
   most = nil
   price = 0
-  array = traverse(restaurants, "price", restaurants)
+  array = traverse(restaurants, "price", restaurants, new_array)
   array.each do |hash|
-    #binding.pry
     if price < hash.values[0]
       most = hash.keys[0].to_s
       price = hash.values[0]
     end
   end
-  puts most
+  most.gsub! "_", " "
+  most.capitalize
 end
 
 
-
 def one_of_everything_from(name)
-  "SOLUTION GOES HERE"
+  new_array = []
+  array = traverse(restaurants[name], "price", restaurants, new_array)
+  total = array.inject(0) { |sum, x| sum += x.values[0] }.to_f
+  total / 100
 end
 
 def monthly_egg_count
