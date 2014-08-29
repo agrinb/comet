@@ -19,13 +19,12 @@ describe 'launcher lunches' do
   it 'lists all items for lactose intolerant individuals by price' do
     lf_items = [
       :corn_on_the_cob,
-      :sad_cereal,
       :apathetic_eggs,
       :mopey_falafels,
       :fluffer_nutter_with_bacon,
       :veggie_surprise_bag
     ]
 
-    expect(lactose_free_items).to eq lf_items
+    expect(lf_items.all? {|z| lactose_free_items.include?(z)}).to eq true
   end
 end

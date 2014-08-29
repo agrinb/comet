@@ -148,12 +148,17 @@ def monthly_egg_count
   # 2 eggs used per menu item, on average 8 items sold per hour of operation
   array = []
   ingredients = egg_finder(restaurants, "ingredients", restaurants, array)
-  egg_product_count = ingredients.inject(0) { |eggs, x| x.values[0].include?("eggs") ? eggs += 1 : eggs }
+  egg_product_count = ingredients.inject(0) { |eggs, item| item.values[0].include?("eggs") ? eggs += 1 : eggs }
   egg_product_count * 2 * 8 * 7 * 30
 end
 
 def lactose_free_items
-  "SOLUTION GOES HERE"
+  array = []
+  ingredients = egg_finder(restaurants, "ingredients", restaurants, array)
+  lactose_free_items = ingredients.select! do |item|
+     !item.values[0].include?("milk") && !item.values[0].include?("cheese")
+  end
+  lactose_free_items.map { |item| item.keys[0]}
 end
 
 most_expensive
