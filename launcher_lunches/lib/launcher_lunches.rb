@@ -79,7 +79,7 @@ def restaurants
           },
           tearful_tacos: {
             price_in_cents: 719,
-            ingredients: ["beef", "taco shells", "cheese", ]
+            ingredients: ["beef", "taco shells", "cheese"]
           }
         }
       }
@@ -107,8 +107,7 @@ def egg_finder(hash, string, parent, array)
     #binding.pry
     if k.to_s.include?(string)
       #binding.pry
-      array << { k => hash[k]}
-      #egg_finder(hash[k], string, k, counter)
+      array << { parent => hash[k]}
     elsif v.respond_to?(:keys)
       egg_finder(hash[k], string, k, array)
     else
@@ -149,8 +148,8 @@ def monthly_egg_count
   # 2 eggs used per menu item, on average 8 items sold per hour of operation
   array = []
   ingredients = egg_finder(restaurants, "ingredients", restaurants, array)
-  egg_product_count = ingredients.inject(0) { |eggs, x| x[:ingredients].include?("eggs") ? eggs += 1 : eggs }
-  egg_product_count * 2 * 8 * 24 * 30
+  egg_product_count = ingredients.inject(0) { |eggs, x| x.values[0].include?("eggs") ? eggs += 1 : eggs }
+  egg_product_count * 2 * 8 * 7 * 30
 end
 
 def lactose_free_items
