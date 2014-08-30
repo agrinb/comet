@@ -102,14 +102,12 @@ def traverse(hash, string, parent, array)
   array
 end
 
-def egg_finder(hash, string, parent, array)
+def ingredient_finder(hash, string, parent, array)
   hash.each do |k, v|
-    #binding.pry
     if k.to_s.include?(string)
-      #binding.pry
       array << { parent => hash[k]}
     elsif v.respond_to?(:keys)
-      egg_finder(hash[k], string, k, array)
+      ingredient_finder(hash[k], string, k, array)
     else
       array
     end
@@ -147,14 +145,14 @@ end
 def monthly_egg_count
   # 2 eggs used per menu item, on average 8 items sold per hour of operation
   array = []
-  ingredients = egg_finder(restaurants, "ingredients", restaurants, array)
+  ingredients = ingredient_finder(restaurants, "ingredients", restaurants, array)
   egg_product_count = ingredients.inject(0) { |eggs, item| item.values[0].include?("eggs") ? eggs += 1 : eggs }
   egg_product_count * 2 * 8 * 7 * 30
 end
 
 def lactose_free_items
   array = []
-  ingredients = egg_finder(restaurants, "ingredients", restaurants, array)
+  ingredients = ingredient_finder(restaurants, "ingredients", restaurants, array)
   lactose_free_items = ingredients.select! do |item|
      !item.values[0].include?("milk") && !item.values[0].include?("cheese")
   end
