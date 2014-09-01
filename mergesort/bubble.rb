@@ -10,14 +10,15 @@ def bubble(arr, unsorted)
         if arr[i] > arr[i+1]
           unsorted = true
           arr[i], arr[i+1] = arr[i+1], arr[i]
+          bubble(arr, unsorted)
         else
           unsorted = false
-          return arr
         end
+        #binding.pry
       end
     end
-    bubble(arr, unsorted)
   end
+  arr
 end
 
 
