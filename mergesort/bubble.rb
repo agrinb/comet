@@ -14,7 +14,6 @@ def bubble(arr, unsorted)
         else
           unsorted = false
         end
-        #binding.pry
       end
     end
   end
