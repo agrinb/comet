@@ -17,3 +17,8 @@
 - Problem 8 [solution](https://github.com/agrinb/ProjectEuler/blob/master/p8.rb)
 - Problem 9 [solution](https://github.com/agrinb/ProjectEuler/blob/master/p9.rb)
 - Problem 10 [solution](https://github.com/agrinb/ProjectEuler/blob/master/p10.rb)
+
+ 
+### Launch Academy Practice Problems: 
+- Comet [solution](https://github.com/agrinb/comet)
+
