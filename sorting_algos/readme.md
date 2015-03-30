@@ -20,5 +20,5 @@
 
  
 ### Launch Academy Practice Problems: 
-- Comet [solution](https://github.com/agrinb/comet)
+- Comet [various](https://github.com/agrinb/comet)
 
